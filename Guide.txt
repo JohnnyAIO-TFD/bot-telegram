@@ -1,0 +1,120 @@
+I can help you create and manage Telegram bots. If you're new to the Bot API, please see the manual (https://core.telegram.org/bots).
+
+You can control me by sending these commands:
+
+/newbot - create a new bot
+/mybots - edit your bots [beta]
+
+Edit Bots
+/setname - change a bot's name
+/setdescription - change bot description
+/setabouttext - change bot about info
+/setuserpic - change bot profile photo
+/setcommands - change the list of commands
+/deletebot - delete a bot
+
+Bot Settings
+/token - generate authorization token
+/revoke - revoke bot access token
+/setinline - toggle inline mode (https://core.telegram.org/bots/inline)
+/setinlinegeo - toggle inline location requests (https://core.telegram.org/bots/inline#location-based-results)
+/setinlinefeedback - change inline feedback (https://core.telegram.org/bots/inline#collecting-feedback) settings
+/setjoingroups - can your bot be added to groups?
+/setprivacy - toggle privacy mode (https://core.telegram.org/bots#privacy-mode) in groups
+
+Games
+/mygames - edit your games (https://core.telegram.org/bots/games) [beta]
+/newgame - create a new game (https://core.telegram.org/bots/games)
+/listgames - get a list of your games
+/editgame - edit a game
+/deletegame - delete an existing game
+
+@BotFather
+
+Enlaces: https://telegraf.js.org/classes/telegraf.html
+
+bot.help( (ctx) => {
+    console.log(ctx);
+    ctx.reply('Ayuda!!');
+});
+
+bot.settings( (ctx) => {
+    console.log(ctx);
+    ctx.reply('Settings');
+});
+
+bot.command(['mycommand', 'Mycommand', 'MYCOMMAND', 'test'], (ctx) => {
+    console.log(ctx);
+    ctx.reply('Mi Comando personalizado');
+});
+
+/* Detecta cuando escribe el texto */
+bot.hears('alberto', (ctx) => {
+    ctx.reply('Alberto es Tukky');
+});
+
+bot.hears('computer', (ctx) => {
+    ctx.reply('Hey I am');
+});
+
+/* Detecta cuando escribe o envia el sticker */
+bot.on('text', (ctx) => {
+    ctx.reply('Estas escribiendo');
+});
+
+bot.on('sticker', (ctx) => {
+    ctx.reply('Estas enviando stickers');
+});
+
+bot.mention("BotFather", (ctx) => {
+    ctx.reply('Has mencionado a BotFather');
+});
+
+bot.phone('+1 730 263-4233', (ctx) => {
+    ctx.reply('Este es un numero de telefono');
+});
+
+bot.hashtag('programming', (ctx) => {
+    ctx.reply('Este es un hastag de programming');
+});
+
+    bot.telegram.sendMessage(ctx.chat.id, "Select channel", {
+        "reply_markup": {
+          "inline_keyboard": [
+            [
+              {
+                text: "Channel 1",
+                callback_data: "click",
+              },
+            ],
+            [
+              {
+                text: "Channel 2",
+                callback_data: "click2",
+              },
+            ],
+            [
+              {
+                text: "Channel 3",
+                callback_data: "click",
+              },
+            ],
+            [
+              {
+                text: "Channel 4",
+                callback_data: "click2",
+              },
+            ],
+            [
+              {
+                text: "Send post to channel",
+                callback_data: "click2",
+              },
+            ],
+          ],
+          
+        },
+        
+      });
+
+Emojis: https://emojipedia.org/money-mouth-face/
