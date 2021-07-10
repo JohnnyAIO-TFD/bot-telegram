@@ -25,7 +25,7 @@ console.log(error);
 /* Reemplaza los comandos por defecto, eso debe consultar las guias */
 bot.start( (ctx) => {
     console.log(ctx);
-    bot.telegram.sendMessage(ctx.chat.id, 'Bienvenidos' + ' ' + ctx.from.first_name + ' ' + ctx.from.last_name + ' ' + 'al sistema de pedidos');
+    ctx.reply('Bienvenidos' + ' ' + ctx.from.first_name + ' ' + ctx.from.last_name + ' ' + 'al sistema de pedidos');
     ctx.reply('Si necesita consultar el precio del dollar escriba: /dollar');
     ctx.reply('Si necesita alguna consulta, por favor escriba: /menu');
 });
@@ -33,7 +33,7 @@ bot.start( (ctx) => {
 /* Crea los comandos con /comando */
 bot.command('menu', (ctx) => {
     /* Esto genera los botenes en el chat */
-    bot.telegram.sendMessage(ctx.chat.id, "Tenemos los siguientes menus", {
+    ctx.reply("Tenemos los siguientes menus", {
         "reply_markup": {
             "inline_keyboard": [
             [
