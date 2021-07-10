@@ -67,25 +67,25 @@ bot.command('menu', (ctx) => {
 });
 // Respuesta de cada callback_data
 bot.action("desayunos", (ctx) => {
-    bot.telegram.sendMessage(ctx.chat.id, 'Tenemos los mejores desayunos a 1💲 ');
+    ctx.telegram.sendMessage(ctx.chat.id, 'Tenemos los mejores desayunos a 1💲 ');
 });
 
 bot.action("dulces", (ctx) => {
-    bot.telegram.sendMessage(ctx.chat.id, 'Tenemos los dulces pequeños 3x1 1💲 ');
+    ctx.telegram.sendMessage(ctx.chat.id, 'Tenemos los dulces pequeños 3x1 1💲 ');
 });
 
 bot.action("pizza", (ctx) => {
-    bot.telegram.sendMessage(ctx.chat.id, 'Tenemos las raciones de pizza a 1.5💲 ');
+    ctx.telegram.sendMessage(ctx.chat.id, 'Tenemos las raciones de pizza a 1.5💲 ');
 });
 
 bot.action("almuerzos", (ctx) => {
-    bot.telegram.sendMessage(ctx.chat.id, 'Tenemos las ventas de almuerzos a 3💲 ');
+    ctx.telegram.sendMessage(ctx.chat.id, 'Tenemos las ventas de almuerzos a 3💲 ');
 });
 
 /* Este escritor nos da la posibilidad de generar los botones de respuestas */
 bot.hears("location", (ctx) => {
     console.log(ctx.from)
-    bot.telegram.sendMessage(ctx.chat.id, 'Podemos obtener su numero de telefono?', requestLocationKeyboard);
+    ctx.telegram.sendMessage(ctx.chat.id, 'Podemos obtener su numero de telefono?', requestLocationKeyboard);
 });
 
 const requestLocationKeyboard = {
