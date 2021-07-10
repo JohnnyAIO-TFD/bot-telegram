@@ -1,16 +1,9 @@
-const { Telegraf, Markup } = require('telegraf');
-const bot = new Telegraf('1756315114:AAGBhslvhHoS7oFLZMgfbMcO0DgbHdfIxNs');
+// const { Telegraf } = require('telegraf');
+const { Composer } = require('micro-bot');
+// const bot = new Telegraf('1866857285:AAEodjK-iIYUmDUzzDN3sKmw8OGObCU08AM');
+const bot = new Composer;
 const axios = require('axios');
 const cheerio = require('cheerio');
-const { type } = require('os');
-
-const keyboard = {
-    "reply_markup": {
-        "inline_keyboard":[
-            [{text: "This is a text", url: "https://google.com"}],
-        ]
-    }
-};
 
 /* Variables para el Dollar */
 var dollar = axios.get('http://www.bcv.org.ve/').then(response => {
@@ -133,4 +126,5 @@ bot.hashtag(['concorDeli', 'ConcorDeli', 'concordeli'], (ctx) => {
 });
 
 
-bot.launch();
+// bot.launch();
+module.exports = bot;
