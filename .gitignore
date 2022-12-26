@@ -1,4 +1,4 @@
 node_modules/
 .env
 
-curl -X POST https://api.telegram.org/bot1866857285:AAEodjK-iIYUmDUzzDN3sKmw8OGObCU08AM/setWebhook -H "Content-type: application/json" -d '{"url": "https://bot-telegram-swart.vercel.app/api/webhook"}'
+curl -X POST https://api.telegram.org/bot1866857285:AAEodjK-iIYUmDUzzDN3sKmw8OGObCU08AM/setWebhook -H "Content-type: application/json" -d "{\"url\": \"https://bot-telegram-swart.vercel.app/api/webhook\"}"

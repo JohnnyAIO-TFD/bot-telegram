@@ -1,30 +1,9 @@
 process.env.NTBA_FIX_319 = 'test';
 const { Telegraf } = require('telegraf');
 const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
-const axios = require('axios');
-const cheerio = require('cheerio');
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 
 // const { Composer } = require('micro-bot');
 // const bot = new Composer;
-
-
-/* Variables para el Dollar */
-var dollar = axios.get('http://www.bcv.org.ve/').then(response => {
-    const html = response.data;
-    const $ = cheerio.load(html);
-    const scrapedata = $('strong', '.row .recuadrotsmc').text();
-    let backupDollar = scrapedata.slice(50, 63);
-    dollar = '';
-    for (let i = 0; i < backupDollar.length; i++) {
-        dollar += backupDollar[i];
-    }
-
-    return dollar;
-
-}).catch(error => {
-    console.log(error);
-});
 
 /* Reemplaza los comandos por defecto, eso debe consultar las guias */
 bot.start((ctx) => {
@@ -106,12 +85,6 @@ const requestLocationKeyboard = {
     }
 
 }
-
-bot.command('dollar', (ctx) => {
-    console.log(dollar);
-    ctx.reply('Recordamos que la tasa del dolar manejamos al BCV');
-    ctx.reply('Precio del dolar: 🤑' + dollar);
-});
 
 /*
 bot.command('test', (ctx) => {
