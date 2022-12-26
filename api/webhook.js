@@ -1,5 +1,6 @@
 process.env.NTBA_FIX_319 = 'test';
 const { Telegraf } = require('telegraf');
+const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
 const axios = require('axios');
 const cheerio = require('cheerio');
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
@@ -134,7 +135,6 @@ bot.hears(['concorDeli', 'ConcorDeli', 'concordeli'], (ctx) => {
 
 module.exports = async (request, response) => {
     try {
-        const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
         bot.launch();
     } catch (error) {
         console.error('Error sending message');
