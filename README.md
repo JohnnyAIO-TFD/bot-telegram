@@ -1,8 +1,8 @@
 # bot-telegram
-This is a bot telegram develop by NodeJS, it is only business
+Esto es un Bot de Telegram que se utilizaran para sacar el inventario de ODOO
 
 # How to run ?
-First npm install to install all packages, then npm run dev
+Tienes que darle npm install --force, y luego correr con npm run dev
 
 # What kind of resources do you use?
-In the Guide.txt you will show about links, commands, web pages to keeping doing.
+Esto es basado la documentacion de Telegram Bot, e intentando hacer el Serverless en VERCEL
